@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extracurriculars</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'activities/styles.css' %}">
+</head>
+<body>
+    <h1>Find Extracurriculars</h1>
+    <form method="get">
+        {{ form.as_p }}
+        <input type="text" name="search" placeholder="Search for extracurriculars">
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Results</h2>
+
+    <div id="extracurriculars-list">
+        {% for extracurricular in extracurriculars %}
+        <div class="extracurricular" onclick="location.href='{% url 'extracurricular_detail' extracurricular.id %}';">
+            <img src="{{ extracurricular.picture.url }}" alt="{{ extracurricular.name }}">
+            <h3>{{ extracurricular.name }}</h3>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

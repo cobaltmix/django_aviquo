@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ extracurricular.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'activities/styles.css' %}">
+</head>
+<body>
+    <div class="detail-container">
+        <h1>{{ extracurricular.name }}</h1>
+        <img src="{{ extracurricular.picture.url }}" alt="{{ extracurricular.name }}">
+        <p>{{ extracurricular.description }}</p>
+        <p>Tags: Year - {{ extracurricular.year }}, Subject - {{ extracurricular.subject }}, Cost - {{ extracurricular.cost }}, Effort - {{ extracurricular.effort }}</p>
+        <p><a href="{{ extracurricular.url }}" target="_blank">Visit Website</a></p>
+    </div>
+</body>
+</html>
